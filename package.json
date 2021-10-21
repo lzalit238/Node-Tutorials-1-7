@@ -1,0 +1,23 @@
+{
+  "name": "node-tutorials-1-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-intro.js",
+  "dependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npx nodemon 12-http.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lzalit238/Node-Tutorials-1-7.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lzalit238/Node-Tutorials-1-7/issues"
+  },
+  "homepage": "https://github.com/lzalit238/Node-Tutorials-1-7#readme"
+}
