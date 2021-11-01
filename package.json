@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "npx nodemon 17-http-stream.js"
+    "start": "npx nodemon 01-http-basics.js"
   },
   "repository": {
     "type": "git",
