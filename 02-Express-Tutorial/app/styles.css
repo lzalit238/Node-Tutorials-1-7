@@ -69,4 +69,6 @@ p {
 .urMom {
   background-color: rgb(173, 173, 173);
   border-radius: 2rem;
+  padding: 2rem;
+  margin: auto;
 }
