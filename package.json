@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "npx nodemon 01-http-basics.js"
+    "start": "npx nodemon 02-http-app.js"
   },
   "repository": {
     "type": "git",
