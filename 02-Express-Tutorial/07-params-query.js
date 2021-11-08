@@ -15,19 +15,19 @@ app.get('/api/products', (req, res) => {
     res.json(newProducts)
 })
 
-app.get('/api/products/:productID', (req, res) => {
-    //console.log(req)
-    //console.log(req.params)
-    const { productID } = req.params
-    
-    const { singleProduct } = products.find(
-        (product) => product.id === Number(productID)
-    )
-    if (!singleProduct) {
-        return res.status(404).send('Product Does Not Exist')
-    }
+app.get('/api/products/:productID', (req, res) => { //   : denotes information provided by the url itself
+  // console.log(req)
+  // console.log(req.params)
+  const { productID } = req.params
 
-    return res.json(singleProduct)
+  const singleProduct = products.find(
+    (product) => product.id === Number(productID)
+  )
+  if (!singleProduct) {
+    return res.status(404).send('Product Does Not Exist')
+  }
+
+  return res.json(singleProduct)
 })
 
 app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
@@ -42,7 +42,7 @@ app.get('/api/v1/query', (req, res) => {
 
     if (search) {
         sortedProducts = sortedProducts.filter((product) => {
-            return product.name.startsWith(search)
+            return product.name.includes(search)
         })
     }
     if (limit) {
