@@ -5,7 +5,7 @@ const authorize = (req, res, next) => {
 
 
     const { apikey } = req.query
-    if (apikey === 'pancake')
+    if (apikey === 'pancake') //http://localhost:5000/api?apikey=pancake
     {    console.log('authorized')
     //modifies the request object for the next response
         req.user = { name: 'Lilzlbork', id: 123454321 }

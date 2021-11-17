@@ -13,7 +13,7 @@ and they will be used  in order
 api / home / products
 */
 
-app.use([logger, authorize])
+// app.use([logger, authorize])
 
 app.get('/', (req, res) => {
     res.send('Home')
@@ -21,6 +21,22 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.send('About')
+})
+
+app.use('/api', [logger, authorize])
+
+/*
+this will apply the logger to any path that includes
+the /api as part of its path. this is a nice way for
+you to run logger on api to stop a certain amount of
+*/
+
+app.get('/api', (req, res) => {
+    res.send('api')
+})
+
+app.get('/api/products', (req, res) => {
+    res.send('products')
 })
 
 app.listen(5000, () => {
