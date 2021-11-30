@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended: false}));
 //parses form data
 //this works similarly to the url encoded but handles the json 
 app.use(express.json());
+
 app.get('/api/people', (req, res) => {
     res.json({ success: true, data: people});
 });
@@ -35,7 +36,7 @@ app.post('/api/people', (req, res) => {
 app.post('/login', (req, res) => {
     console.log(req.body);
     const {name} = req.body;
-    if (name === 'Lily') {
+    if (name == 'Lily') {
         return res.json({status: 200, data: name});
         // or res.status(200).send(`Welcome: ${name}`)
     }
@@ -43,6 +44,18 @@ app.post('/login', (req, res) => {
     //res.send('posted')
 });
 
+//testing postman
+app.post('/api/postman/person', (req,res) => {
+    const {name} = req.body;
+    if (!name) {
+        return res
+        .status(400)
+        .json({data: [], success: false, msg: 'please enter a name'});
+    }
+    res.status(201).json({success: true, data: [...people, name]});
+});
+
 app.listen(3000, () => {
     console.log('server listening at port 3000...');
 })
+
