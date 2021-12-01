@@ -55,6 +55,42 @@ app.post('/api/postman/person', (req,res) => {
     res.status(201).json({success: true, data: [...people, name]});
 });
 
+//put requests updates
+app.put('/api/people/:id', (req, res) => {
+    const {id} = req.params;
+    const {name} = req.body;
+    const person = people.find((person) => person.id === Number(id));
+
+    if (!person) {
+        return express.json({success: false, data: []});
+    }
+
+    const newPeople = people.map((person) => {
+        if (person.id === Number(id)) {
+            person.name = name;
+        }
+        return person;
+    });
+
+    res.status(202).json({data: newPeople, success: true});
+})
+
+//delete requests
+app.delete('/api/people/:id', (req, res) => {
+    const {id} = req.params;
+    const person = people.find((person) => person.id === Number(id));
+
+    if (!person) {
+        return req.status(404).json({success: false, msg: 'no matching ID found'});
+    }
+
+    people = people.filter((person) => {
+        return person.id !== Number(id);
+    })
+
+    res.status(200).json({data: people, success: true});
+});
+
 app.listen(3000, () => {
     console.log('server listening at port 3000...');
 })
